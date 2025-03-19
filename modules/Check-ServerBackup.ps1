@@ -9,7 +9,7 @@ Invoke-Command -ComputerName $computers -ScriptBlock {
         $weeklyresult = gc "J:\logs\weeklybackup.log" -tail 3 | sls success
         if($weeklyresult -eq $null)
         {
-            Write-Host $env:COMPUTERNAME
+            Write-Host "$env:COMPUTERNAME has failed in Weeklybackup! `n" -BackgroundColor Red
         }
     }
 
